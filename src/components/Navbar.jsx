@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 
 import { FaBars , FaTimes} from "react-icons/fa";
 
+import  './Navbar.css';
+
+
 
 const Navbar = () => {
 
@@ -18,7 +21,7 @@ const Navbar = () => {
   return (
     <>
 
-    <div className="Navbar">
+    <div className="navbar">
       <div className="navbar-logo">React Navigation</div>
 
       <ul  className="navbar-links"> 
