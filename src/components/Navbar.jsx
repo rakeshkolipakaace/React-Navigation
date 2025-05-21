@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="navbar">
-        <div className="navbar-logo">Web Dev Mastery</div>
+        <div className="navbar-logo">React Navigation</div>
 
         <ul className={`navbar-links ${isOpen ? "active" : ""}`}>
           <button className="close-drawer" onClick={closeDrawer}>
