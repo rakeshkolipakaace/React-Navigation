@@ -1,47 +1,62 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
+import { FaBars, FaTimes } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
-
-import { FaBars , FaTimes} from "react-icons/fa";
-
-import  './Navbar.css';
-
-
+import './Navbar.css'
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const [isOpen, setIsOpen] =useState(false);
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-    const closeMenu = () => {
-        setIsOpen(false);
-    };
+  const toggleMenu = () =>{
+    setIsOpen(!isOpen)
+  }
+
+  const closeDrawer = () =>{
+    setIsOpen(false)
+  }
+
   return (
-    <>
+    <div>
+      <div className="navbar">
+        <div className="navbar-logo">Web Dev Mastery</div>
 
-    <div className="navbar">
-      <div className="navbar-logo">React Navigation</div>
+        <ul className={`navbar-links ${isOpen ? "active" : ""}`}>
+          <button className="close-drawer" onClick={closeDrawer}>
+            <FaTimes /> Close
+          </button>
+          <li>
+            <Link to={"/"} onClick={closeDrawer}>
+              {" "}
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to={"/about"} onClick={closeDrawer}>
+              {" "}
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to={"/services"} onClick={closeDrawer}>
+              {" "}
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link to={"/contact"} onClick={closeDrawer}>
+              {" "}
+              Contact
+            </Link>
+          </li>
+        </ul>
 
-      <ul  className="navbar-links"> 
-        <button  className="closed-drawer" onClick={closeMenu}>
-            <FaTimes />
-        </button>
-        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-        <li><Link to="/about" onClick={closeMenu}>About</Link></li>
-        <li><Link to="/services" onClick={closeMenu}>Services</Link></li>
-        <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
-      </ul>
-
-      <div className="menu-icon" onClick={toggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-       </div>
+        <div className="menu-icon" onClick={toggleMenu}>
+          {isOpen ? <FaBars /> : <FaBars />}
+        </div>
       </div>
-    
-    </>
-   
+    </div>
   );
-};
+}
 
-export default Navbar;
+export default Navbar
